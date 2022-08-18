@@ -1270,6 +1270,26 @@ class PlayState extends MusicBeatState
 		}
 		#end
 	}
+public function updateScore()
+        {
+		var lol:String = 'Score:' + songScore; //simple fix
+		scoreTxt.text = lol;
+		if (cpuControlled)
+			lol = 'Bot Score:' + botSongScore;
+
+		switch (ClientPrefs.scoreStyle)
+		{
+                        case 'Random Engine':
+				   scoreTxt.text = lol + ' // Misses: ' + songMisses + ' // Acc: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' + ' // Rank: ' + ratingName + ' (' + ratingFC + ')' ;//peeps wanted no integer rating
+				
+                        case 'Psych Engine':
+                                   scoreTxt.text = lol + ' | Misses: ' + songMisses + ' | Rating: ' + ratingName  + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
+             
+
+
+
+
+
 
 	function startCharacterPos(char:Character, ?gfCheck:Bool = false) {
 		if(gfCheck && char.curCharacter.startsWith('gf')) { //IF DAD IS GIRLFRIEND, HE GOES TO HER POSITION
